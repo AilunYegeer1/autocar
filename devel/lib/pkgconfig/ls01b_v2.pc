@@ -1,0 +1,8 @@
+prefix=/home/ros-autocar/ROS-Autocar/devel
+
+Name: ls01b_v2
+Description: Description of ls01b_v2
+Version: 2.0.0
+Cflags: -I/home/ros-autocar/ROS-Autocar/devel/include
+Libs: -L${prefix}/lib 
+Requires: roscpp std_srvs rospy std_msgs message_runtime dynamic_reconfigure

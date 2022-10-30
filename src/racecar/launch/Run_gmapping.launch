@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+
+<launch>
+
+    <arg name="use_rviz" default="true" />
+
+    <!-- ODOMETRY -->
+    <!--rf2o_Laser_Odometry-->
+    <include file="$(find racecar)/launch/includes/rf2o.launch.xml" />
+    <!-- wheel odometry -->
+    <include file="$(find encoder_driver)/launch/wheel_odom.launch"/>
+
+     <!-- Robot_Localization -->
+    <node pkg="robot_localization" type="ekf_localization_node" name="ekf_se" clear_params="true">
+        <rosparam command="load" file="$(find racecar)/param/ekf_params.yaml" />
+    </node>
+
+    <!-- gmapping -->
+    <node pkg="gmapping" type="slam_gmapping" name="slam_gmapping" output="screen">
+        <remap from="scan" to="scan"/>
+        <param name="map_update_interval" value="2.5"/> <!-- 栅格地图的建图时间间隔，因为耗费计算资源，所以默认值为5s生成一次栅格地图-->
+        <param name="maxUrange" value="4.0"/> <!-- 激光雷达的使用距离 -->
+        <param name="sigma" value="0.05"/> <!-- scan-match扫描匹配过程的标准偏差-->
+        <param name="kernelSize" value="1"/> <!-- 扫描匹配过程的搜索窗口大小-->
+        <param name="lstep" value="0.05"/> <!-- scan-match中的optimization距离优化步长-->
+        <param name="astep" value="0.05"/> <!-- scan-match中的optimization角度优化步长-->
+        <param name="iterations" value="5"/> <!--scan-match中的optimization迭代次数-->
+        <param name="lsigma" value="0.075"/> <!-- scan-match的似然计算的标准偏差-->
+        <param name="ogain" value="3.0"/> <!--评估可能性时使用的增益，用于平滑重采样效果-->
+        <param name="lskip" value="0"/> <!-- 对于一帧激光雷达数据来说 只取每第(n+1)个激光束  这个是相对于scan-match来说的。
+如果n等于0 则取每第1帧激光束
+如果n等于1 则取每第2帧激光束 也就是说使用的激光束变成原来的1/2
+如果n等于2 则取每第3帧激光束 也就是说使用的激光束变成原来的1/3-->
+        <param name="srr" value="0.1"/> <!-- 机器人的运动模型的相关的噪声参数-->
+        <param name="srt" value="0.2"/> 
+        <param name="str" value="0.1"/> 
+        <param name="stt" value="0.2"/> 
+        <param name="linearUpdate" value="0.10"/> <!-- 只有当机器人至少移动了linearUpdate米，机器人才会处理新的测量数据，进行scan-match-->
+        <param name="angularUpdate" value="0.25"/> <!-- 只有当机器人至少旋转了angularUpdate弧度，机器人才会处理新的测量数据，进行scan-match-->
+        <param name="temporalUpdate" value="1.0"/> <!--如果距离上次scan-match时间大于temporalUpdate（秒），则进行scan-match，负值则不更新-->
+        <param name="resampleThreshold" value="0.25"/> <!--粒子重新采样的阈值。更高意味着更频繁的重采样-->
+        <param name="particles" value="30"/> <!--粒子滤波的粒子个数-->
+        <param name="xmin" value="-100.0"/> <!-- 初始地图x方向最小尺寸-->
+        <param name="ymin" value="-100.0"/> <!--初始地图y方向最小尺寸-->
+        <param name="xmax" value="100.0"/> <!-- 初始地图x方向最大尺寸-->
+        <param name="ymax" value="100.0"/> <!--初始地图y方向最大尺寸-->
+        <param name="delta" value="0.05"/> <!-- 栅格地图分辨率，每个栅格为边长0.05m的正方形-->
+        <param name="llsamplerange" value="0.01"/> <!--scan-match中似然估计的平移采样范围-->
+        <param name="llsamplestep" value="0.01"/><!--scan-match中似然估计的平移采样的步长-->
+        <param name="lasamplerange" value="0.005"/><!--scan-match中似然估计的角度采样范围-->
+        <param name="lasamplestep" value="0.005"/><!--scan-match中似然估计的角度采样的步长-->
+        <param name="odom_frame" value="odom"/>
+        <param name="base_frame" value="base_footprint"/>
+    </node>
+
+    <!-- Rviz -->
+    <node pkg="rviz" type="rviz" name="rviz" args="-d $(find racecar)/rviz/gmapping.rviz" if="$(arg use_rviz)"/>
+
+</launch>
+

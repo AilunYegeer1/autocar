@@ -1,0 +1,8 @@
+prefix=/home/ros-autocar/ROS-Autocar/devel
+
+Name: encoder_driver
+Description: Description of encoder_driver
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib -lart_encoder_driver
+Requires: rospy std_msgs serial geometry_msgs tf

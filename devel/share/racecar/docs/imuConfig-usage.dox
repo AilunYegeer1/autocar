@@ -1,0 +1,7 @@
+\subsubsection usage Usage
+\verbatim
+<node name="racecar" pkg="racecar" type="racecar">
+  <param name="yaw_calibration" type="double" value="0.0" />
+</node>
+\endverbatim
+

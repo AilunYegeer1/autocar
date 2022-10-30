@@ -1,0 +1,11 @@
+\subsubsection usage Usage
+\verbatim
+<node name="safety_dynamic_param" pkg="ls01b_v2" type="safety_dynamic_param">
+  <param name="special_range" type="double" value="0.0" />
+  <param name="robot_radius" type="double" value="1.0" />
+  <param name="center_x" type="double" value="0.0" />
+  <param name="center_y" type="double" value="0.0" />
+  <param name="truncated_mode" type="int" value="0" />
+</node>
+\endverbatim
+

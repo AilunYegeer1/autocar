@@ -1,0 +1,10 @@
+\subsubsection parameters ROS parameters
+
+Reads and maintains the following parameters on the ROS server
+
+- \b "~special_range" : \b [double] Special range value for truncated laser data min: -100.0, default: 0.0, max: 100.0
+- \b "~robot_radius" : \b [double] Robot's radius used for truncated laser data min: -100.0, default: 1.0, max: 100.0
+- \b "~center_x" : \b [double] laser frame x-position related to Base min: -5.0, default: 0.0, max: 5.0
+- \b "~center_y" : \b [double] laser frame x-position related to Base min: -5.0, default: 0.0, max: 5.0
+- \b "~truncated_mode" : \b [int] Different approach to truncate laser data min: 0, default: 0, max: 4
+

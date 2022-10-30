@@ -1,0 +1,8 @@
+prefix=/home/ros-autocar/ROS-Autocar/devel
+
+Name: serial
+Description: Description of serial
+Version: 1.2.1
+Cflags: -I/home/ros-autocar/ROS-Autocar/src/serial/include
+Libs: -L${prefix}/lib -lserial -lrt -lpthread
+Requires: 

@@ -1,0 +1,8 @@
+prefix=/home/ros-autocar/ROS-Autocar/devel
+
+Name: imu_complementary_filter
+Description: Description of imu_complementary_filter
+Version: 1.1.8
+Cflags: -I/home/ros-autocar/ROS-Autocar/src/imu_tool/imu_complementary_filter/include
+Libs: -L${prefix}/lib -lcomplementary_filter
+Requires: message_filters roscpp sensor_msgs std_msgs tf

@@ -1,0 +1,1 @@
+/usr/bin/c++    -rdynamic CMakeFiles/serial_example.dir/examples/serial_example.cc.o  -o /home/ros-autocar/ROS-Autocar/devel/lib/serial/serial_example  -Wl,-rpath,/home/ros-autocar/ROS-Autocar/devel/lib /home/ros-autocar/ROS-Autocar/devel/lib/libserial.so -lrt -lpthread 

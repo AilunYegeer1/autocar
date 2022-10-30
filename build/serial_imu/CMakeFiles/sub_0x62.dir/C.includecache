@@ -1,0 +1,38 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/ros-autocar/ROS-Autocar/src/serial_imu/src/imu_data_decode.c
+string.h
+-
+stdio.h
+-
+packet.h
+/home/ros-autocar/ROS-Autocar/src/serial_imu/src/packet.h
+imu_data_decode.h
+/home/ros-autocar/ROS-Autocar/src/serial_imu/src/imu_data_decode.h
+
+/home/ros-autocar/ROS-Autocar/src/serial_imu/src/imu_data_decode.h
+stdint.h
+-
+stdbool.h
+-
+
+/home/ros-autocar/ROS-Autocar/src/serial_imu/src/packet.c
+string.h
+-
+stdio.h
+-
+packet.h
+/home/ros-autocar/ROS-Autocar/src/serial_imu/src/packet.h
+
+/home/ros-autocar/ROS-Autocar/src/serial_imu/src/packet.h
+stdint.h
+-
+stdbool.h
+-
+

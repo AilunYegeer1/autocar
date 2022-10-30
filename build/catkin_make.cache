@@ -1,0 +1,2 @@
+encoder_driver:imu_launch:imu_tool/imu_complementary_filter:imu_tool/imu_filter_madgwick:imu_tool/rviz_imu_plugin:ls01x:racecar:racecar_driver:rf2o_laser_odometry:serial:serial_imu
+-DCATKIN_DEVEL_PREFIX=/home/ros-autocar/ROS-Autocar/devel -DCMAKE_INSTALL_PREFIX=/home/ros-autocar/ROS-Autocar/install -G Unix Makefiles

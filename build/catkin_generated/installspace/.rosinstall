@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/ros-autocar/ROS-Autocar/install/setup.sh
